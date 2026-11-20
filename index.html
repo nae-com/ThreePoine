@@ -265,7 +265,7 @@ Welcome to Three Point Eduaction's trading community. Explore market insights, e
 JOIN TELEGRAM CHANNEL
 </a>
 
-<div class="secure">↗ &nbsp; Connect with Three Point Eduaction on Telegram</div>
+<div class="secure">↗ &nbsp; Redirecting to Telegram in <span id="countdown">5</span>s...</div>
 </section>
 
 <div class="divider"></div>
@@ -274,6 +274,7 @@ JOIN TELEGRAM CHANNEL
 <h2 class="section-title">What You'll Explore</h2>
 <p class="section-sub">Build knowledge. Understand the markets.</p>
 
+<div class="features">
 <div class="feature">
 <div class="feature-icon">💡</div>
 <div>
@@ -317,6 +318,24 @@ observer.unobserve(entry.target);
 },{threshold:0.12});
 
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// 5-second auto redirect to Telegram
+(function(){
+  const redirectUrl = "https://t.me/+Hu7vDaGMVTEzNWM1";
+  let secondsLeft = 5;
+  const countdownEl = document.getElementById("countdown");
+
+  const timer = setInterval(() => {
+    secondsLeft -= 1;
+    if (countdownEl) {
+      countdownEl.textContent = Math.max(secondsLeft, 0);
+    }
+    if (secondsLeft <= 0) {
+      clearInterval(timer);
+      window.location.href = redirectUrl;
+    }
+  }, 1000);
+})();
 </script>
 </body>
 </html>
